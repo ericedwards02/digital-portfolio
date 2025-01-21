@@ -9,8 +9,8 @@ export const posts: Post[] = [
     title: "about me",
   },
   {
-    id: "MyEducation",
-    title: "my education",
+    id: "Experience",
+    title: "edu-experience",
   },
   {
     id: "Statistik",

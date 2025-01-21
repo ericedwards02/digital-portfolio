@@ -12,6 +12,7 @@
         --background: #24273a;
         --foreground: #ededed;
         --headers: #a6da95;
+        --subheaders: #b5bfe2;
     }
 }
 
@@ -23,5 +24,12 @@ body {
 
 h1 {
     font-size: x-large;
+    font-weight: bold;
     color: var(--headers);
+}
+
+h2 {
+    font-size: large;
+    font-weight: bold;
+    color: var(--subheaders);
 }
