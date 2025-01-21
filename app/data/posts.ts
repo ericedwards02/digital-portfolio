@@ -34,6 +34,6 @@ export const posts: Post[] = [
   },
   {
     id: "VirtuesAndVices",
-    title: "virtues-and-vices",
+    title: "habit-tracker",
   },
 ];
