@@ -1,0 +1,20 @@
+.menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.menu li {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.menu li:hover {
+    text-decoration: underline;
+}
+
+.menu li:active {
+    transform: scale(0.88);
+    color: goldenrod;
+}
