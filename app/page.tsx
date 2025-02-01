@@ -7,21 +7,22 @@ import { posts } from "./data/posts";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
-  const [activePost, setActivePost] = useState(posts[0]);
+  const [activePost, setActivePostAction] = useState(posts[0]);
 
   return (
     <>
       <Analytics />
-      <div className="font-sans max-w-[1600px] mx-auto p-5">
+      <div id="document" className="font-sans max-w-[1600px] mx-auto p-5">
         <h1 className="mb-0 text-center font-bold text-xl">
-          Eric Edwards &mdash; dev and design
+          <span className="text-ctp-green">Eric Edwards</span> &mdash;
+          <span className="text-ctp-flamingo"> dev and design portfolio</span>
         </h1>
-        <h2 className="mt-0 text-center text-lg">
+        <h2 className="mt-0 text-center text-lg text-ctp-subtext1">
           &quot;Next time is next time, now is now!&quot;
           <i> - Hirayama (Perfect Days, 2023)</i>
         </h2>
-        <div className="flex gap-10">
-          <Nav setActivePost={setActivePost} />
+        <div className="flex lg:flex-row not-lg:flex-col justify-center">
+          <Nav setActivePostAction={setActivePostAction} />
           <ContentSection activePost={activePost} />
         </div>
       </div>
