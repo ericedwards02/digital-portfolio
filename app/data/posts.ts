@@ -3,7 +3,7 @@ export interface Post {
   title: string;
 }
 
-export const posts: Post[] = [
+export const portfolio_posts: Post[] = [
   {
     id: "AboutMe",
     title: "about me",
@@ -35,5 +35,12 @@ export const posts: Post[] = [
   {
     id: "VirtuesAndVices",
     title: "habit-tracker",
+  },
+];
+
+export const blog_posts: Post[] = [
+  {
+    id: "Links",
+    title: "links",
   },
 ];

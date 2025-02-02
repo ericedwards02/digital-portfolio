@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Nav from "./components/Nav";
 import ContentSection from "./components/ContentSection";
-import { posts } from "./data/posts";
+import { portfolio_posts } from "./data/posts";
 import { Analytics } from "@vercel/analytics/react";
 
 export default function Home() {
-  const [activePost, setActivePostAction] = useState(posts[0]);
+  const [activePost, setActivePostAction] = useState(portfolio_posts[0]);
 
   return (
     <>

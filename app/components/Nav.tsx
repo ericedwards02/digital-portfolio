@@ -1,7 +1,7 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
-import { posts, Post } from "../data/posts";
+import { blog_posts, portfolio_posts, Post } from "../data/posts";
 
 interface NavProps {
   setActivePostAction: Dispatch<SetStateAction<Post>>;
@@ -18,13 +18,23 @@ export default function Nav({ setActivePostAction }: NavProps) {
   return (
     <ul className="list-none not-lg:self-center p-0 m-0 w-[200px]">
       <li className="text-lg font-bold">portfolio</li>
-      {posts.map((post, index) => (
+      {portfolio_posts.map((post, index) => (
         <li
           key={post.id}
           onClick={() => setActivePostAction(post)}
           className="text-lg text-gray-500 transition-all duration-250 cursor-pointer mb-2.5 hover:text-xl hover:font-bold hover:text-ctp-peach"
         >
           {formatTitleIndex(index)} {post.title}
+        </li>
+      ))}
+      <li className="text-lg font-bold">blogs & extras</li>
+      {blog_posts.map((post, index) => (
+        <li
+          key={post.id}
+          onClick={() => setActivePostAction(post)}
+          className="text-lg text-gray-500 transition-all duration-250 cursor-pointer mb-2.5 hover:text-xl hover:font-bold hover:text-ctp-peach"
+        >
+          {formatTitleIndex(index + portfolio_posts.length)} {post.title}
         </li>
       ))}
     </ul>
