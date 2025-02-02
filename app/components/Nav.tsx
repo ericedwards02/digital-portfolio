@@ -22,7 +22,8 @@ export default function Nav({ setActivePostAction }: NavProps) {
         <li
           key={post.id}
           onClick={() => setActivePostAction(post)}
-          className="text-lg text-gray-500 transition-all duration-250 cursor-pointer mb-2.5 hover:text-xl hover:font-bold hover:text-ctp-peach"
+          tabIndex={index}
+          className="text-lg text-gray-500 transition-all duration-250 cursor-pointer mb-2.5 hover:text-xl hover:font-bold hover:text-ctp-peach focus:text-xl focus:font-bold focus:text-ctp-peach"
         >
           {formatTitleIndex(index)} {post.title}
         </li>
@@ -32,7 +33,8 @@ export default function Nav({ setActivePostAction }: NavProps) {
         <li
           key={post.id}
           onClick={() => setActivePostAction(post)}
-          className="text-lg text-gray-500 transition-all duration-250 cursor-pointer mb-2.5 hover:text-xl hover:font-bold hover:text-ctp-peach"
+          tabIndex={portfolio_posts.length + index}
+          className="text-lg text-gray-500 transition-all duration-250 cursor-pointer mb-2.5 hover:text-xl hover:font-bold hover:text-ctp-peach focus:text-xl focus:font-bold focus:text-ctp-peach"
         >
           {formatTitleIndex(index + portfolio_posts.length)} {post.title}
         </li>
