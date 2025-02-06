@@ -9,9 +9,9 @@ interface NavProps {
 
 function formatTitleIndex(index: number): string {
   if (index < 0 || index > 10) {
-    return String(index);
+    return index.toString();
   }
-  return "0" + String(index);
+  return "0" + index.toString();
 }
 
 export default function Nav({ setActivePostAction }: NavProps) {
