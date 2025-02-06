@@ -1,5 +1,4 @@
 "use client";
-import { Icon } from "@iconify/react";
 
 interface TechnologiesBannerProps {
   technologies: Array<string>;
