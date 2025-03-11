@@ -17,7 +17,7 @@ export default function Home() {
           <span className="text-ctp-green">Eric Edwards</span> &mdash;
           <span className="text-ctp-flamingo"> dev and design portfolio</span>
         </h1>
-        <h2 className="mt-0 text-center text-lg text-ctp-subtext1">
+        <h2 className="mt-0 text-center text-lg text-ctp-subtext1 lg:m-3">
           &quot;Next time is next time, now is now!&quot;
           <i> - Hirayama (Perfect Days, 2023)</i>
         </h2>

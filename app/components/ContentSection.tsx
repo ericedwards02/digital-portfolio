@@ -23,7 +23,7 @@ export default function ContentSection({ activePost }: ContentSectionProps) {
 
   return (
     <div className="lg:max-w-prose lg:w-[80ch] justify-self-center">
-      <h2 className="text-2xl">{activePost.title}</h2>
+      <h2 className="text-2xl mb-4">{activePost.title}</h2>
       {post ? post : <Undefined />}
     </div>
   );

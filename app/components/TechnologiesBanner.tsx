@@ -20,7 +20,7 @@ export const TechnologiesBanner = ({
                 <div className="place-self-center">{icons[t]}</div>
                 <li className="list-none px-1 font-mono">
                   {t}
-                  {index !== technologies.length - 1 && ","}
+                  {index !== technologies.length - 1 && " "}
                 </li>
               </div>
             );

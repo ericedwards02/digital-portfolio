@@ -28,7 +28,7 @@ export default function Nav({ setActivePostAction }: NavProps) {
           {formatTitleIndex(index)} {post.title}
         </li>
       ))}
-      <li className="text-lg font-bold">blogs & extras</li>
+      <li className="text-lg font-mono">blogs & extras</li>
       {blog_posts.map((post, index) => (
         <li
           key={post.id}
