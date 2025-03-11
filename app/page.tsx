@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Analytics />
       <div id="document" className="font-sans max-w-[1600px] mx-auto p-5">
-        <h1 className="mb-0 text-center font-bold text-xl">
+        <h1 className="mb-0 text-center font-bold text-xl font-mono">
           <span className="text-ctp-green">Eric Edwards</span> &mdash;
           <span className="text-ctp-flamingo"> dev and design portfolio</span>
         </h1>

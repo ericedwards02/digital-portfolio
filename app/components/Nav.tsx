@@ -17,7 +17,7 @@ function formatTitleIndex(index: number): string {
 export default function Nav({ setActivePostAction }: NavProps) {
   return (
     <ul className="list-none not-lg:self-center p-0 m-0 w-[200px]">
-      <li className="text-lg font-bold">portfolio</li>
+      <li className="text-lg font-mono">portfolio</li>
       {portfolio_posts.map((post, index) => (
         <li
           key={post.id}

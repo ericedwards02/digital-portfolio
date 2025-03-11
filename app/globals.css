@@ -35,6 +35,11 @@
     body {
         color: var(--color-ctp-text);
     }
+    h1,
+    h2,
+    h3 {
+        font-family: var(--font-mono);
+    }
 
     h1 {
         font-size: xx-large;
