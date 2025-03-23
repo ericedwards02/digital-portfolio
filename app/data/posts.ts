@@ -17,12 +17,12 @@ export const portfolio_posts: Post[] = [
     title: "statistik",
   },
   {
-    id: "Tstat",
-    title: "tstat",
-  },
-  {
     id: "MediaMind",
     title: "media-mind",
+  },
+  {
+    id: "Tstat",
+    title: "tstat",
   },
   {
     id: "RecordLog",
@@ -40,7 +40,7 @@ export const portfolio_posts: Post[] = [
 
 export const blog_posts: Post[] = [
   {
-    id: "Links",
-    title: "links",
+    id: "Letterboxd",
+    title: "perfect days",
   },
 ];

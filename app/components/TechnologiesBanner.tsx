@@ -1,9 +1,10 @@
 "use client";
 
-import { icons, Icon } from "./icons";
+import React from "react";
+import { icons } from "./icons";
 
 interface TechnologiesBannerProps {
-  technologies: Array<Icon>;
+  technologies: Array<string>;
 }
 
 export const TechnologiesBanner = ({
@@ -14,7 +15,7 @@ export const TechnologiesBanner = ({
       {" "}
       {technologies && (
         <ul>
-          {technologies.map((t, index) => {
+          {technologies.map((t: string, index) => {
             return (
               <div className="inline-flex" key={index}>
                 <div className="place-self-center">{icons[t]}</div>
