@@ -32,7 +32,7 @@ export default function RootLayout({
               width={1600}
               height={100}
             />
-            <span className="text-ctp-peach text-2xl font-bold cursor-default">
+            <span className="text-ctp-red text-2xl font-bold cursor-default">
               dev and design portfolio
             </span>
           </div>
