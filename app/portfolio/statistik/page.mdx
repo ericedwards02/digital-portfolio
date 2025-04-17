@@ -1,5 +1,6 @@
 import { TechnologiesBanner } from "@/components/technologies-banner";
 import GithubLink from "@/components/github-link";
+import Image from "next/image";
 
 <TechnologiesBanner
   technologies={["typescript", "react", "vite", "tailwind"]}
@@ -9,3 +10,26 @@ import GithubLink from "@/components/github-link";
   link="https://github.com/uoclass/statistik"
   text="Statistik GitHub"
 />
+
+# statistik
+
+Check out the project on GitHub! Here are some screenshots of the application:
+
+<br />
+<figure className="m-4">
+    <Image src="/statistik/image-1.png" alt="Image Description" height={1000} width={1000} />
+    <figcaption className="text-center p-2">Logged-out landing page</figcaption>
+</figure>
+<figure className="m-4">
+    <Image src="/statistik/image-2.png" alt="New view page" height={1000} width={1000} />
+    <figcaption className="text-center p-2">New view page</figcaption>
+</figure>
+<figure className="m-4">
+    <Image src="/statistik/image-3.png" alt="User guide" height={1000} width={1000} />
+    <figcaption className="text-center p-2">User guide</figcaption>
+</figure>
+
+<figure className="m-4">
+    <Image src="/statistik/image-4.png" alt="User guide continued" height={1000} width={1000} />
+    <figcaption className="text-center p-2">User guide continued</figcaption>
+</figure>
