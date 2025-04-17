@@ -17,6 +17,10 @@ export const portfolioRoutes: PostRoute[] = [
     label: "statistik",
   },
   {
+    href: "/portfolio/regulatis",
+    label: "regulatis",
+  },
+  {
     href: "/portfolio/media-mind",
     label: "media mind",
   },
