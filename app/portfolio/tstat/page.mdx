@@ -19,6 +19,8 @@ There are 5 important Python files to know about:
 
 The whole program is invoked by running `cli.py` and issuing it command line arguments. These are stored in a Python dictionary object called `args` which is passed around to many, many functions to shape the program behavior. In most cases, the user will issue a report CSV file and some filters and options comprising a query. Then, `cli.py` will call upon `report.py` to parse that CSV file and create tickets with requestor, building, department, etc. objects based on definitions from `ticketclasses.py`. These tickets and objects are kept in data structures defined by `organization.py`, which also runs the user-defined query and sends the appropriately-formatted query results to `visual.py` to be displayed to the user. With few exceptions depending on the command given by the user, this is the process the program goes through, as concisely as possible. More details follow in the descriptions of each file below.
 
+<br />
+
 ## Glossary
 
 * `args` — dictionary object parsed from `argv` user input; used ubiquitously, often as a function argument
@@ -40,8 +42,9 @@ The whole program is invoked by running `cli.py` and issuing it command line arg
 * **requestor** — `User` object (see '`User`') for the individual who requested the ticket to be filed; point of contact for the ticket
 * **tstat Standard Report** — TeamDynamix report containing only the fields needed by `tstat` to run queries; see the relevant page
 * `User` — object representing a person; contains a name, email, and a phone number, and stores tickets for which it is the requestor
+<br />
 
-### The tstat Standard Report
+## The tstat Standard Report
 
 To test ideal program behavior with a sample of real tickets, use the "tstat Standard Report" when exporting a TeamDynamix report (assuming it has been shared with you already). Including additional fields is not recommended but does not affect program behavior. Omission of fields will incur warnings and, if those missing fields are needed for the query issued, an error.
 
@@ -63,15 +66,17 @@ The following legacy fields can be used alongside or instead of "Location" and "
 In the program, this information is stored in the `STANDARD_FIELDS` dictionary object from `report.py`. The keys are attribute names (see 'attribute' in glossary) and the values are lists of field names. A field name at index 0 is preferred, and all following field names are considered legacy and incur warning on usage.
 
 Tangential note on reports: TeamDynamix only exports reports to an Excel (.xlsx) file format, but Excel can then 'Save As' CSV. Currently, `tstat` can only read reports formatted as CSV.
+<br />
 
-### Unit Testing
+## Unit Testing
 
 All unit testing files are in the `/unit-testing` directory. Currently, all definitions for the unit tests themselves are in the `unittests.py` file, organized into distinct test classes and methods. The `unittest` Python module is used for unit testing. Relevant example configurations and example reports are also stored in the `/unit-testing` directory.
 
 From the root directory, run the following command to run unit tests.
 `python3 unit-testing/unittests.py`
+<br />
 
-### Debugging Options
+## Debugging Options
 
 `tstat` is equipped with a few debugging options. Note that, by default, error traceback is disabled to improve user-friendliness.
 
@@ -80,43 +85,42 @@ The following debugging flags are available:
 * `--nographics` disables viewing graph for query results (also disabled printing for "showtickets" querytype)
 * `--printquery` prints dictionary for query results to terminal (does nothing for "showtickets" quertype)
 
-## Rundown of Python files
+<br />
 
-### `cli.py` — User input
+## Rundown of Python files
+<br />
+
+## `cli.py` — User input
 
 The `cli.py` file contains the `main()` function and is the only file that can be called by the user to begin the program (hence, the entry point). It contains the argument parser, functions for validating and converting user input into more useful datatypes, and it handles file I/O for JSON configuration files (but not for CSV ticket reports). Of course, by nature of being the program entry point, `cli.py` also contains many calls to functions from other files, particularly inside `main()`.
 
 Unlike the other files, which primarily keep functionality sorted in to methods of classes, `cli.py` does not contain many class definitions at all and contains a rather linear structure which helps it carry out the procedure described in the summary section above. Use of the crucial `args` dictionary object begins very early on in the `main()` function and is passed into nearly every other function called during this procedure.
 
-Access the following page for reference information and more details:
-[cli.py Details](https://github.com/uoclass/tstat/wiki/cli.py-Details)
+<br />
 
-### `report.py` — Parsing tickets
+## `report.py` — Parsing tickets
 
 The `report.py` file contains the `Report` class definition, which is reponsbile for file I/O pertaining to CSV reports sourced from running the "tstat Standard Report" from TeamDynamix. Most notably, the `Report` class parses the CSV report to create `Ticket` objects, create `OrganizationEntity` objects associated with those tickets, and populate the `Organization` class with those objects.
 
 The `Report` class also stores the CSV report filepath and determines some basic information such as which fields are present, useful for deciding whether the issued query can be run. Generally, the methods defined in `report.py` is only relevant when starting up the program and are no longer called once `Organization` is populated.
 
-Access the following page for reference information and more details:
-[report.py Details](https://github.com/uoclass/tstat/wiki/report.py-Details)
+<br />
 
-### `ticketclasses.py` — Class definitions
+## `ticketclasses.py` — Class definitions
 
 The primary purpose of the `ticketclasses.py` file is to provide useful class definitions, especially those for tickets and for `OrganizationEntity` objects (see '`OrganizationEntity`' definition in glossary). The definitions for `Ticket`, `Building`, `Room`, `User`, `Group`, and `Department` are stored in `ticketclasses.py`, for instance. Some other miscellaneous classes pertaining to tickets are also stored, such as `Status` and `Diagnosis`, which inherit from `Enum`.
 
-Access the following page for reference information and more details:
-[ticketclasses.py Details](https://github.com/uoclass/tstat/wiki/ticketclasses.py-Details)
+<br />
 
-### `organization.py` — Data structures and queries
+## `organization.py` — Data structures and queries
 
 While `cli.py` is the file from which the whole program is invoked, `organization.py` serves as the fundamental piece of the puzzle. It defines the data structures for the storage and indexing of `Ticket` and of `OrganizationEntity` objects, and it accesses those data structures in the most efficient way possible to create and deliver query results (typically stored in a dictionary, sometimes a list). In this regard, `organization.py` could be considered the back-end of the project based on the current file structure.
 
 The `Organization` class methods include the finder methods (see glossary definition), a method for each querytype, and a method for storing tickets in the `self.tickets` dictionary. The `organization.py` file also includes some helper functions, including for instance a function to narrow down a query's results based on filters issued by the user from `args`.
 
-Access the following page for reference information and more details:
-[organization.py Details](https://github.com/uoclass/tstat/wiki/organization.py-Details)
+<br />
 
-### `visual.py` — Display Output
+## `visual.py` — Display Output
 
 The `visual.py` file is responsible for displaying to the user the results of the issued query. This can be done graphically (using the `matplotlib` dependency) or textually (in the case of the "showtickets" querytype). The `visual.py` file also contains some function definitions for ticket cropping and pruning (see glossary definitions).
 
