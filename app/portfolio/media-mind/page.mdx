@@ -1,3 +1,102 @@
 import { TechnologiesBanner } from "@/components/technologies-banner";
+import Image from 'next/image'
 
 <TechnologiesBanner technologies={["typescript", "react", "vite"]} />
+
+<figure>
+<Image src="/mediamind/homepage.png" alt="Media Mind Homepage" width={800} height={600} />
+<figcaption className="text-center p-2">Block View</figcaption>
+</figure>
+
+# media, all in one place
+
+<br />
+
+Anyone who knows me knows that I love to log. I'm always on letterboxd at the end of a movie, checking up on friends' book updates on goodreads, and perusing RateYourMusic. At times, however, it gets to be
+a little overwhelming keeping up with the sheer volume of media I encounter on all these platforms, and I wanted a simple place to log all of my media, but also enable a way to gain more interesting insights
+about the relationships between the media I engage with.
+
+<br />
+
+So, the solution that I found is *media mind*.
+
+<br />
+
+# thoughts, the process, throwaway ideas and notes
+
+<br />
+
+## What is the purpose of media mind?
+I want to be able to log my books, movies, shows, and albums in the same place. Other programs specialize in a single form of media, but I'd like to have a central spot for all of it.
+
+<br />
+
+## Backlogs
+
+<br />
+Maybe have some way to schedule out new stuff to 'consume' (need to work on a better word for consuming media).
+There should be some form of entry creation before you actually add everything, maybe it can just be called 'the backlog'.
+For the 'widget' additions: review, rating, 'iterator title: number' (ex. 'page': 52 or 'chapter': 23 or 'episode': 42), source link, photo upload.
+
+User interaction, we could look at similarity of graphs? Do we want to see other user graph networks? Yes, we should be able to see that.
+
+Maybe we only compute relations between members of a cohort to reduce site-wide complexity.
+- I want users to be able to log and diagram entries that *do not* need to already exist in some kind of database. They should be organically created.
+- I do, however, want users in a cohort to be able to resolve connections between mutual cohortions.
+
+<br />
+
+## Cohortian Network Union
+
+<br />
+
+An interesting feature would be a combination network between the two graphs. We can perform a union of the two graphs to create the integrated graph, and visualize it.
+
+<figure className="m-4">
+<Image className="place-self-center" alt="Graph union for comparison" src="/mediamind/unionmockup.png" height={500} width={500} />
+<figcaption className="text-center p-2">Graph union for comparison</figcaption>
+</figure>
+**Problem:** These nodes (entries) exist as unique entries in a database, that may or may not have different titles associated with them. Maybe they should be an exact title and media type media type to be considered identical? How do we gauge identical entries in order to create the discovery nodes? Should movies with identical titles (See: Crash (1996) and Crash (2004)) be considered the same thing?
+
+<br />
+We could store a hash of the title (in a canonized form, capitalization and whitespace agnostic) together with the media type. Nodes would be considered identical entries if this canonized checksum matches the checksum of an entry in the other user's network. When doing the union operation, we maintain all of the relationships between both users.
+<br />
+We can also do some kind of fuzzy-matching approach. I think that equality measurement should take into account different required metadata for different media types.
+
+<br />
+
+**Different media types should require different minimum fields for equality measurement**
+
+<br />
+
+I want to be able to construct some kind of 'diff' between the two graphs, in order to create a recommendation network for possible interests from Alice, e.g. Because Alice has logged the red and orange nodes, they would be recommended the purple node.
+
+<br />
+
+## Design Considerations
+
+<br />
+
+I like the look of the default Figma font, *Inter*. But, I want to consider a slab serif like Museo for the title or some more accentuated text. Sans serif seems good for the common font.
+
+Currently I'm using a neobrutalism inspired design. High contrast, low complexity.
+
+<div className="grid grid-cols-2 gap-4 m-4">
+<figure>
+    <Image src="/mediamind/group-1.png" alt="Image Description" height={300} width={300} />
+    <figcaption className="text-center p-2">List view</figcaption>
+</figure>
+
+<figure>
+    <Image src="/mediamind/group-2.png" alt="Image Description" height={300} width={300} />
+    <figcaption className="text-center p-2">Block view</figcaption>
+</figure>
+<figure>
+    <Image src="/mediamind/group-3.png" alt="Image Description" height={300} width={300} />
+    <figcaption className="text-center p-2">Creation view</figcaption>
+</figure>
+<figure>
+    <Image src="/mediamind/group-4.png" alt="Image Description" height={300} width={300} />
+    <figcaption className="text-center p-2">Edit view</figcaption>
+</figure>
+</div>
