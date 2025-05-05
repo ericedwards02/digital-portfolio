@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { icons } from "@/components/icons";
 import Nav from "@/components/nav";
+import { Socials } from "@/components/socials";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -36,23 +36,7 @@ export default function RootLayout({
               dev and design portfolio
             </span>
           </div>
-          <div
-            id="links"
-            className="flex lg:flex-col not-lg:flex-row place-items-end gap-3 text-ctp-subtext1 p-3"
-          >
-            <a
-              href="https://github.com/ericedwards02"
-              className="inline-flex gap-1 hover:text-neutral-800 cursor-default"
-            >
-              {icons.github} GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/ericedwards02"
-              className="inline-flex gap-1 hover:text-neutral-800 cursor-default"
-            >
-              {icons.linkedin}LinkedIn
-            </a>
-          </div>
+          <Socials />
         </div>
         <h2 className="mt-0 text-center text-lg text-ctp-subtext1 lg:mb-3 cursor-default">
           &quot;Next time is next time, now is now!&quot;
